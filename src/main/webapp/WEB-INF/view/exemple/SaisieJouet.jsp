@@ -1,5 +1,5 @@
-<%@page import="com.epul.ergosum.metier.Comporte"%>
-<%@page import="com.epul.ergosum.metier.Jouet"%>
+<% //page import="com.epul.ergosum.metier.Comporte"%>
+<% //page import="com.epul.ergosum.metier.Jouet"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
@@ -9,18 +9,18 @@
 
 <%
   	//Traiter l'objet comporte : Prendre le premier rempli, pour page modifier sauvegarder la liste pour la modification des valeurs
- 	Comporte comporte = null;
-	if (request.getAttribute("jouet") != null) {
-		Jouet j = (Jouet)request.getAttribute("jouet");
+ 	//Comporte comporte = null;
+	//if (request.getAttribute("jouet") != null) {
+		//Jouet j = (Jouet)request.getAttribute("jouet");
 		
-		if (j.getComportes().iterator().hasNext())
-			comporte = j.getComportes().iterator().next();
+		//if (j.getComportes().iterator().hasNext())
+		//	comporte = j.getComportes().iterator().next();
 		
-		request.setAttribute("comportesList", j.getComportes());
-	} else
-		comporte = new Comporte();
+		//request.setAttribute("comportesList", j.getComportes());
+	//} else
+		//comporte = new Comporte();
 
-	request.setAttribute("comporte", comporte);
+	//request.setAttribute("comporte", comporte);
 %>
 
 <t:layout>

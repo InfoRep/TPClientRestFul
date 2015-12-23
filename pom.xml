@@ -115,7 +115,11 @@
 			<artifactId>jersey-core</artifactId>
 			<version>1.19</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20151123</version>
+		</dependency>
 
 	</dependencies>	
 </project>

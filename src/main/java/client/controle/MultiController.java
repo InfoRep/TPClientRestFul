@@ -26,9 +26,9 @@ import com.sun.jersey.api.client.WebResource;
  */
 @Controller
 public class MultiController extends MultiActionController {
-
 	private static final Logger logger = LoggerFactory.getLogger(MultiController.class);
-
+	public static final String baseUrlWS = "http://localhost:8080/webserviceRest/webservice/";
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -41,23 +41,6 @@ public class MultiController extends MultiActionController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate);
-		return "/index";
-	}
-	
-	
-	@RequestMapping(value = "/test")
-	public ModelAndView afficherLesClients(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "http://localhost:8080/webserviceRest/webservice/";
-		
-		Client c = Client.create();
-		WebResource webResource = c.resource(url);
-		String rep = webResource
-						.path("json/product/get")
-						.accept(MediaType.APPLICATION_JSON)
-						.get(String.class);
-		
-		request.setAttribute("message", rep);
-		
-		return new ModelAndView("/test");
+		return "/home";
 	}
 }

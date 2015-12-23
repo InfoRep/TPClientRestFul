@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title><jsp:invoke fragment="pageTitle" /> ~ Ergosum<% //Titre de la page %> </title>
+<title><jsp:invoke fragment="pageTitle" /> ~ Le Cerisaie</title>
 
 <link rel="icon" type="image/png"
 	href="${pageContext.request.contextPath}/resources/images/icone.png" />
@@ -58,7 +58,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/">Ergosum</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/">La Cerisaie</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,40 +67,63 @@
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-						Jouets
+						Clients
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="${pageContext.request.contextPath}/jouet/afficherJouets.htm">Lister</a></li>
-						<li><a href="${pageContext.request.contextPath}/jouet/ajouterJouet.htm">Ajouter</a></li>
+						<li><a href="${pageContext.request.contextPath}/client/list">Lister</a></li>
+						<li><a href="${pageContext.request.contextPath}/client/add">Ajouter</a></li>
 						<li class="divider"></li>
 						<li>
-							<form method="post" role="search" action="${pageContext.request.contextPath}/jouet/afficherJouets.htm">
+							<form method="post" role="search" action="${pageContext.request.contextPath}/client/list">
 						        <div class="form-group"  style="margin-bottom:2px;">
 						        	<div class="input-group">
 							        	<span class="input-group-addon" style="padding: 2px" id="basic-addon1">
 							        		<button style="padding:0;margin: 0" class="btn-link glyphicon glyphicon-search"></button>
 							        	</span>
-							         	<input type="text" class="form-control" placeholder="numero" <c:if test="${not empty numeroSearch}">value="${numeroSearch}"</c:if> name="numero" />
+							         	<input type="text" class="form-control" placeholder="nom" 
+							         		<c:if test="${not empty nomClientSearch}">value="${nomClientSearch}"</c:if> name="nomClientSearch" />
 							         </div>
 						        </div>
 					     	</form>
-					     	<a href="${pageContext.request.contextPath}/jouet/rechercheAvancee.htm">Recherche avancée</a>
 						</li>
 					</ul>
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-						Catalogues
+						Séjours
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="${pageContext.request.contextPath}/catalogue/selectionnerAnnee.htm">Par interval</a></li>
-						<li><a href="${pageContext.request.contextPath}/catalogue/selectionnerAnnee.htm?cat">Par catégorie</a></li>
+						<li><a href="${pageContext.request.contextPath}/sejour/list">Lister</a></li>
+						<li><a href="${pageContext.request.contextPath}/sejour/add">Ajouter</a></li>
+						<li class="divider"></li>
+						<li>
+							<form method="post" role="search" action="${pageContext.request.contextPath}/sejour/edit">
+						        <div class="form-group"  style="margin-bottom:2px;">
+						        	<div class="input-group">
+							        	<span class="input-group-addon" style="padding: 2px" id="basic-addon1">
+							        		<button style="padding:0;margin: 0" class="btn-link glyphicon glyphicon-search"></button>
+							        	</span>
+							         	<input type="text" class="form-control" placeholder="id sejour" 
+							         		<c:if test="${not empty idSejourSearch}">value="${idSejourSearch}"</c:if> name="idSejourSearch" />
+							         </div>
+						        </div>
+					     	</form>
+						</li>
 					</ul>
 				</li>
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-				<li><a href="${pageContext.request.contextPath}/dictionnaires.htm">Dictionnaires</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						Facturation
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="${pageContext.request.contextPath}/facturation/sejour">Séjour</a></li>
+						<li><a href="${pageContext.request.contextPath}/facturation/prestations">Prestations sportives</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
@@ -176,7 +199,7 @@
 	</div>
 
 	<div class="well well-sm text-center"
-		style="font-size: 11px; font-style: italic;">Elodie Mourier --
+		style="font-size: 11px; font-style: italic;">Adrien Castex -- Gael Ferjani -- Elodie Mourier --
 		Quentin Vanhauteghem</div>
 
 	<jsp:invoke fragment="javascripts" />

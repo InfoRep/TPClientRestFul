@@ -17,10 +17,10 @@
    			<div class="col-md-7">
 	   			<h4>Nous sommes le ${serverTime}</h4>
    				<br/>
-		   		<p>Cette application vous permettra de modifier les jouets ainsi que leurs catalogues.</p>
+		   		<p>Cette application vous permettra de gérer votre camping.</p>
 		   		<h5>En vous souhaitant une agréable visite !</h5>
 		   		
-		   		<img src="resources/images/jouet.png" width="300" alt="" />
+		   		<img src="resources/images/camping.png" width="500" alt="" />
 			</div>
 			<div class="col-md-4">
 	   			<img src="resources/images/polytech.png" width="300" alt="" />
