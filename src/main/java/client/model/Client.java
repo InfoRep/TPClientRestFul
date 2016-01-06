@@ -22,6 +22,12 @@ public class Client {
 		this.ville = "";
 	}
 	
+	public Client(int num)
+	{
+		super();
+		this.num = num;
+	}
+	
 	public Client(int num, String adrRue, String cp, String nom, String numPiece, String piece, String ville) {
 		super();
 		this.num = num;
@@ -85,7 +91,7 @@ public class Client {
 		return num;
 	}
 	
-	public static Client createFromJSON(JSONObject json)
+	public static Client createFromJSON(JSONObject json) throws Exception
 	{
 		return new Client(
 				(Integer)json.get("numCli"), 

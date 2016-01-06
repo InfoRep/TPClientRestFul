@@ -2,6 +2,8 @@ package client.model;
 
 import java.util.Date;
 
+import org.json.JSONObject;
+
 public class Sejour {
 	private int num;
 	
@@ -12,7 +14,15 @@ public class Sejour {
 	private Client client;
 	private Emplacement emplacement;
 	
-	
+	public Sejour()
+	{
+		this.num = 0;
+		this.dateDeb = null;
+		this.dateFin = null;
+		this.nbPersonnes = 0;
+		this.client = null;
+		this.emplacement = null;
+	}
 	
 	public Sejour(int num, Date dateDeb, Date dateFin, int nbPersonnes, Client client, Emplacement emplacement) {
 		super();
@@ -66,5 +76,17 @@ public class Sejour {
 
 	public int getNum() {
 		return num;
+	}
+	
+	public static Sejour createFromJSON(JSONObject json) throws Exception
+	{
+		return new Sejour(
+				(Integer)json.get("numSejour"), 
+				new Date(Date.parse((String)json.get("datedebSej"))),
+				new Date(Date.parse((String)json.get("dateFinSej"))),
+				(Integer)json.get("nbPersonnes"),
+				new Client((Integer)json.get("client")), 
+				new Emplacement((Integer)json.get("emplacement"))
+		);
 	}
 }

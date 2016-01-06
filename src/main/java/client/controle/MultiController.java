@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -28,6 +29,15 @@ import com.sun.jersey.api.client.WebResource;
 public class MultiController extends MultiActionController {
 	private static final Logger logger = LoggerFactory.getLogger(MultiController.class);
 	public static final String baseUrlWS = "http://localhost:8080/webserviceRest/webservice/";
+	
+	public static HttpServletRequest dealWithFlashBagAttributes(HttpServletRequest request, RedirectAttributes redAttr)
+	{
+		//recup flash bag attribute
+		for (java.util.Map.Entry<String, ?> e : redAttr.getFlashAttributes().entrySet())
+			request.setAttribute(e.getKey(), e.getValue());
+		
+		return request;
+	}
 	
 	/**
 	 * Simply selects the home view to render by returning its name.

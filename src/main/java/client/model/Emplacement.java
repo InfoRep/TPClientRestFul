@@ -1,5 +1,7 @@
 package client.model;
 
+import org.json.JSONObject;
+
 public class Emplacement {
 	private int num;
 	private float surface;
@@ -7,8 +9,15 @@ public class Emplacement {
 	
 	private TypeEmplacement type;
 
+	public Emplacement(int num)
+	{
+		this.num = num;
+		this.surface = 0;
+		this.nbPersMax = 0;
+		this.type = null;
+	}
+	
 	public Emplacement(int num, float surface, int nbPersMax, TypeEmplacement type) {
-		super();
 		this.num = num;
 		this.surface = surface;
 		this.nbPersMax = nbPersMax;
@@ -41,5 +50,15 @@ public class Emplacement {
 
 	public int getNum() {
 		return num;
+	}
+	
+	public static Emplacement createFromJSON(JSONObject json) throws Exception
+	{
+		return new Emplacement(
+				(Integer)json.get("numEmpl"), 
+				(Float)json.get("surfaceEmpl"), 
+				(Integer)json.get("nbPersMaxEmpl"), 
+				TypeEmplacement.createFromJSON((JSONObject)json.get("typeEmplacement"))
+		);
 	}
 }

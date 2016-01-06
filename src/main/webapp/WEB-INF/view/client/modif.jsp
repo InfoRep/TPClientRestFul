@@ -28,7 +28,7 @@
 	  		
 	  		<c:if test="${type == 'modif'}">
 	  		<div class="form-group">
-	  			<label for="idCli" class="control-label col-md-2">NumÃ©ro</label>
+	  			<label for="idCli" class="control-label col-md-2">Numéro</label>
 	  			<div class="col-md-1">
 	  				<input class="form-control" type="number" name="num" value="${client.num}" id="idCli" required readonly />
 	  			</div>

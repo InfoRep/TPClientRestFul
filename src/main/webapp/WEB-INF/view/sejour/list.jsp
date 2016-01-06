@@ -6,12 +6,9 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:layout>
-	<jsp:attribute name="pageTitle">Liste clients</jsp:attribute>
+	<jsp:attribute name="pageTitle">Liste sejours</jsp:attribute>
 
-    <jsp:attribute name="title">
-    Liste des clients 
-    <c:if test="${not empty nomClientSearch}">qui contiennent "${nomClientSearch}"</c:if>
-     : (${fn:length(clients)})</jsp:attribute>
+    <jsp:attribute name="title">Liste des séjours : (${fn:length(sejours)})</jsp:attribute>
     
     <jsp:body>
    		<div class="row">
@@ -19,25 +16,23 @@
 		        <table class="table">
 			  		<tr>
 					 	<th>Numero</th>
-						<th>Nom</th>
-					 	<th>Adresse</th>
-					 	<th>Code postal</th>
-					 	<th>Ville</th>
-					 	<th>Type de piece d'identitee</th>
-					 	<th>Numero piece</th>
+						<th>Numero du client</th>
+					 	<th>Numero de l'emplacement</th>
+					 	<th>Date de debut du sejour</th>
+					 	<th>Date de fin du sejour</th>
+					 	<th>Nombre de personnes</th>
 					 	<th></th>
 					 	<th></th>
 			 		</tr>
 				 	
-				 	<c:forEach  items="${clients}"  var="item" >
+				 	<c:forEach  items="${sejours}"  var="item" >
 				 	<tr class="text-center">
 				     	<td><a target="_blank" href="edit/${item.num}">${item.num}</a></td>					     	
-					  	<td>${item.nom}</td>
-					  	<td>${item.adrRue}</td>
-					  	<td>${item.cp}</td>
-					  	<td>${item.ville}</td>
-					  	<td>${item.piece}</td>
-					  	<td>${item.numPiece}</td>
+					  	<td>${item.client.num}</td>
+					  	<td>${item.emplacement.num}</td>
+					  	<td><fmt:formatDate type="time" value="${item.dateDeb}" /></td>
+					  	<td><fmt:formatDate type="time" value="${item.dateFin}" /></td>
+					  	<td>${item.nbPersonnes}</td>
 					  	<td><a target="_blank" href="edit/${item.num}" class="btn btn-primary">Modifier</a></td>
 					  	<td><a href="delete/${item.num}" class="btn btn-danger">Supprimer</a></td>
 				  	</tr>
