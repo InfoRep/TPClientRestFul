@@ -120,6 +120,13 @@
 			<artifactId>json</artifactId>
 			<version>20151123</version>
 		</dependency>
+		
+		<!-- iText PDF -->
+		<dependency>
+		  <groupId>com.itextpdf</groupId>
+		  <artifactId>itextpdf</artifactId>
+		  <version>5.5.8</version>
+		</dependency>
 
 	</dependencies>	
 </project>
