@@ -96,12 +96,14 @@
   				<c:if test="${type == 'ajout'}">
 				    <input type="submit" class="btn btn-primary" value="Ajouter" />
   					<input type="reset" class="btn btn-warning" value="Reset" />
+  					<a href="list" class="btn btn-default">Retour</a>
 				</c:if>
 		        <c:if test="${type == 'modif'}">
 				   <input type="submit" class="btn btn-primary" value="Modifier" />
+				   <a href="../list" class="btn btn-default">Retour</a>
 				</c:if>
 				
-				<a href="list" class="btn btn-default">Retour</a>
+				
 	  		</div>
 	  	</form>
     </jsp:body>
