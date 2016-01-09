@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class TypeEmplacement {
 	private int code;
 	private String lib; //30 caracteres
-	private float tarif;
+	private double tarif;
 	
 	public TypeEmplacement(int code)
 	{
@@ -14,7 +14,7 @@ public class TypeEmplacement {
 		this.tarif = 0;
 	}
 	
-	public TypeEmplacement(int code, String lib, float tarif) {
+	public TypeEmplacement(int code, String lib, double tarif) {
 		super();
 		this.code = code;
 		this.lib = lib;
@@ -29,11 +29,11 @@ public class TypeEmplacement {
 		this.lib = lib;
 	}
 
-	public float getTarif() {
+	public double getTarif() {
 		return tarif;
 	}
 
-	public void setTarif(float tarif) {
+	public void setTarif(double tarif) {
 		this.tarif = tarif;
 	}
 
@@ -44,9 +44,9 @@ public class TypeEmplacement {
 	public static TypeEmplacement createFromJSON(JSONObject json) throws Exception
 	{
 		return new TypeEmplacement(
-				(Integer)json.get("num"), 
-				(String)json.get("lib"), 
-				(Float)json.get("tarif")
+				(Integer)json.get("codeTypeE"), 
+				(String)json.get("libtypepl"), 
+				(Double)json.get("tariftypepl")
 		);
 	}
 }

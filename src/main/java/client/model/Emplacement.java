@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 public class Emplacement {
 	private int num;
-	private float surface;
+	private double surface;
 	private int nbPersMax;
 	
 	private TypeEmplacement type;
@@ -17,18 +17,18 @@ public class Emplacement {
 		this.type = null;
 	}
 	
-	public Emplacement(int num, float surface, int nbPersMax, TypeEmplacement type) {
+	public Emplacement(int num, double surface, int nbPersMax, TypeEmplacement type) {
 		this.num = num;
 		this.surface = surface;
 		this.nbPersMax = nbPersMax;
 		this.type = type;
 	}
 
-	public float getSurface() {
+	public double getSurface() {
 		return surface;
 	}
 
-	public void setSurface(float surface) {
+	public void setSurface(double surface) {
 		this.surface = surface;
 	}
 
@@ -56,7 +56,7 @@ public class Emplacement {
 	{
 		return new Emplacement(
 				(Integer)json.get("numEmpl"), 
-				(Float)json.get("surfaceEmpl"), 
+				(Double)json.get("surfaceEmpl"), 
 				(Integer)json.get("nbPersMaxEmpl"), 
 				TypeEmplacement.createFromJSON((JSONObject)json.get("typeEmplacement"))
 		);

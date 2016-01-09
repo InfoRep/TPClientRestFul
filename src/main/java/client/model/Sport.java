@@ -1,12 +1,14 @@
 package client.model;
 
+import org.json.JSONObject;
+
 public class Sport {
 	private int code;
 	private String libelle; //10 caractères
 	private String uniteTps; //10 caractères
-	private float tarif;
+	private double tarif;
 	
-	public Sport(int code, String libelle, String uniteTps, float tarif) {
+	public Sport(int code, String libelle, String uniteTps, double tarif) {
 		super();
 		this.code = code;
 		this.libelle = libelle;
@@ -30,15 +32,25 @@ public class Sport {
 		this.uniteTps = uniteTps;
 	}
 
-	public float getTarif() {
+	public double getTarif() {
 		return tarif;
 	}
 
-	public void setTarif(float tarif) {
+	public void setTarif(double tarif) {
 		this.tarif = tarif;
 	}
 
 	public int getCode() {
 		return code;
+	}
+	
+	public static Sport createFromJSON(JSONObject json) throws Exception
+	{
+		return new Sport(
+				(Integer)json.get("codeSport"), 
+				(String)json.get("libelleSport"), 
+				(String)json.get("uniteTpsSport"),
+				(Double)json.get("tarifUnite")
+		);
 	}
 }

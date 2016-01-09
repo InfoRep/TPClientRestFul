@@ -28,6 +28,8 @@ import com.sun.jersey.api.client.WebResource;
 @Controller
 public class MultiController extends MultiActionController {
 	private static final Logger logger = LoggerFactory.getLogger(MultiController.class);
+	
+	//WEBSERVICE ADRESSE
 	public static final String baseUrlWS = "http://localhost:8080/webserviceRest/webservice/";
 	
 	public static HttpServletRequest dealWithFlashBagAttributes(HttpServletRequest request, RedirectAttributes redAttr)

@@ -57,6 +57,7 @@ public class SejourController {
 				mesSejours.add(Sejour.createFromJSON((JSONObject)o));
 
 			request.setAttribute("sejours", mesSejours);
+			request.setAttribute("urlDataActivites", MultiController.baseUrlWS);
 		
 			return new ModelAndView("/sejour/list");
 		} catch (Exception e) {
@@ -120,9 +121,8 @@ public class SejourController {
 	{
 		request.setAttribute("type", "ajout");
 		
-		//get all emplacement
-		List<Emplacement> emplacements = this.getAllEmplacements();
-		request.setAttribute("emplacements", emplacements);
+		request.setAttribute("emplacements", this.getAllEmplacements());
+		request.setAttribute("clients", this.getAllClients());
 		
 		return new ModelAndView("/sejour/modif");
 	}	
@@ -143,11 +143,13 @@ public class SejourController {
 			JSONObject obj = (JSONObject)serv.get("sejour/get/"+String.valueOf(id));
 			Sejour sej = Sejour.createFromJSON(obj);
 			
-			//get all emplacement
-			List<Emplacement> emplacements = this.getAllEmplacements();
-			request.setAttribute("emplacements", emplacements);
+	
+			request.setAttribute("emplacements", this.getAllEmplacements());
+			request.setAttribute("clients", this.getAllClients());
 			
-			request.setAttribute("client", sej);
+			request.setAttribute("sejour", sej);
+			
+			request.setAttribute("urlDataActivites", MultiController.baseUrlWS);
 			
 			destination = "/sejour/modif";
 		} catch (NotValidException e) {
@@ -184,7 +186,10 @@ public class SejourController {
 			String path = type.contentEquals("modif") ? "sejour/edit/"+num : "sejour/add";
 			new ClientService(MultiController.baseUrlWS).postForm(path, formData);
 			
-			redAttr.addFlashAttribute("messSuccess", "Le sejour "+num+" a bien été enregistré !");
+			if (type.contentEquals("modif"))
+				redAttr.addFlashAttribute("messSuccess", "Le sejour "+num+" a bien été enregistré !");
+			else
+				redAttr.addFlashAttribute("messSuccess", "Le sejour a bien été ajouté !");
 		} catch(Exception e) {
 			redAttr.addFlashAttribute("messError", "Une erreur est survenue, merci de contacter l'administrateur du site");
 			System.out.println(e);

@@ -3,19 +3,35 @@ package client.model;
 import java.sql.Date;
 
 public class Activite {
-	private int code;
+	private int id;
+	private Sport sport;
 	private Date dateJour;	
 	private int nbloc;
 	
 	private Sejour sejour;
 
-	public Activite(int code, Date dateJour, int nbloc, Sejour sejour) {
+	public Activite(int id, Sport sport, Date dateJour, int nbloc, Sejour sejour) {
 		super();
-		this.code = code;
+		this.id = id;
+		this.sport = sport;
 		this.dateJour = dateJour;
 		this.nbloc = nbloc;
 		this.sejour = sejour;
 	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public Date getDateJour() {
 		return dateJour;
@@ -41,7 +57,7 @@ public class Activite {
 		this.sejour = sejour;
 	}
 
-	public int getCode() {
-		return code;
+	public Sport getSport() {
+		return sport;
 	}
 }

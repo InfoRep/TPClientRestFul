@@ -16,10 +16,16 @@
     
     <jsp:attribute name="javascripts">
     	<c:if test="${type == 'modif'}">
-    		<script type="text/javascript">
-   				
-    		</script>
-    	</c:if>
+			<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/manageActivities.js"></script>
+				<script type="text/javascript">		
+					$(document).ready(function() 
+					{
+						//manage activities
+						initManageActivities();
+					});	
+				</script>
+			</script>
+		</c:if>
     </jsp:attribute>
     
     <jsp:body>
@@ -45,23 +51,23 @@
 	  		<div class="form-group">
 	  			<label for="dateDeb" class="control-label col-md-2">Date de début</label>
 	  			<div class="col-md-2">
-	  				<input type="text" class="form-control date" name="dateDeb" value="<fmt:formatDate type="time" value="${sejour.dateDeb}" />" id="dateDeb" required />
+	  				<input type="text" class="form-control date" name="dateDeb" value="<fmt:formatDate pattern="yyyy-MM-dd"  value="${sejour.dateDeb}" />" id="dateDeb" required />
 	  			</div>
 	  		</div>
 	  		
 	  		<div class="form-group">
 	  			<label for="dateFin" class="control-label col-md-2">Date de fin</label>
 	  			<div class="col-md-2">
-	  				<input type="text" class="form-control date" name="dateFin" value="<fmt:formatDate type="time" value="${sejour.dateFin}" />" id="dateFin" required />
+	  				<input type="text" class="form-control date" name="dateFin" value="<fmt:formatDate pattern="yyyy-MM-dd"  value="${sejour.dateFin}" />" id="dateFin" required />
 	  			</div>
 	  		</div>	  
 	  		
 	  		<div class="form-group">
-	  			<label for="emplacement" class="control-label col-md-2">Client</label>
+	  			<label for="client" class="control-label col-md-2">Client</label>
 	  			<div class="col-md-2">
-	  				<select name="emplacement" id="emplacement" class="form-control">
+	  				<select name="client" id="client" class="form-control">
   					<c:forEach  items="${clients}"  var="item" >
-  						<option value="item.num" <c:if test="${item.num == sejour.client.num}">selected</c:if>>${item.nom}</option>
+  						<option value="${item.num}" <c:if test="${item.num == sejour.client.num}">selected</c:if>>${item.nom}</option>
   					</c:forEach>
 	  				</select>
 	  			</div>
@@ -72,11 +78,19 @@
 	  			<div class="col-md-2">
 	  				<select name="emplacement" id="emplacement" class="form-control">
   					<c:forEach  items="${emplacements}"  var="item" >
-  						<option value="item.num" <c:if test="${item.num == sejour.emplacement.num}">selected</c:if>>${item.type.lib}</option>
+  						<option value="${item.num}" <c:if test="${item.num == sejour.emplacement.num}">selected</c:if>>${item.type.lib} - ${item.surface}m² - ${item.nbPersMax}pers</option>
   					</c:forEach>
 	  				</select>
 	  			</div>
 	  		</div>
+
+	  		<c:if test="${type == 'modif'}">
+		  		<input type="hidden" value="${urlDataActivites}" id="urlDataActivites" />
+	    		<jsp:include page="../includes/modalActivities.jsp"></jsp:include>
+	    		<div class="form-group text-center">
+		  			<a href="#" class="btn btn-default showActivites" sej="${sejour.num}">Gérer les activités</a>
+		  		</div>
+		  	</c:if>
 	  		
 	  		<div class="form-group text-right">
   				<c:if test="${type == 'ajout'}">
@@ -87,7 +101,7 @@
 				   <input type="submit" class="btn btn-primary" value="Modifier" />
 				</c:if>
 				
-				<a href="list" class="btn btn-default">Retour</a>
+				<a href="../list" class="btn btn-default">Retour</a>
 	  		</div>
 	  	</form>
     </jsp:body>

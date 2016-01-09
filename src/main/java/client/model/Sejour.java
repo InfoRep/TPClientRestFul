@@ -1,6 +1,9 @@
 package client.model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import org.json.JSONObject;
 
@@ -80,13 +83,15 @@ public class Sejour {
 	
 	public static Sejour createFromJSON(JSONObject json) throws Exception
 	{
+		DateFormat format = new SimpleDateFormat("yyyy-MM-d", Locale.FRANCE);
+
 		return new Sejour(
-				(Integer)json.get("numSejour"), 
-				new Date(Date.parse((String)json.get("datedebSej"))),
-				new Date(Date.parse((String)json.get("dateFinSej"))),
+				(Integer)json.get("numSej"), 
+				format.parse((String)json.get("datedebSej")),
+				format.parse((String)json.get("dateFinSej")),
 				(Integer)json.get("nbPersonnes"),
-				new Client((Integer)json.get("client")), 
-				new Emplacement((Integer)json.get("emplacement"))
+				Client.createFromJSON((JSONObject)json.get("client")),
+				Emplacement.createFromJSON((JSONObject)json.get("emplacement"))
 		);
 	}
 }

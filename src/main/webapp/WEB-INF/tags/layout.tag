@@ -11,21 +11,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><jsp:invoke fragment="pageTitle" /> ~ Le Cerisaie</title>
 
-<link rel="icon" type="image/png"
-	href="${pageContext.request.contextPath}/resources/images/icone.png" />
+<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/images/icone.png" />
 
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/theme_bleu.min.css">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/lib/bootstrapDialog/css/bootstrap-dialog.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/lib/zebra_Datepicker/css/bleu.css"
-	type="text/css" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/layout_bleu.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/lib/bootstrap/css/theme_bleu.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/lib/bootstrapDialog/css/bootstrap-dialog.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/lib/zebra_Datepicker/css/bleu.css" ype="text/css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout_bleu.css">
 
 <style type="text/css">
 	.modal-backdrop {
@@ -38,14 +32,10 @@
 	//Pour inclure des fichiers ou code css
 %>
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/lib/jquery/jquery-1.11.2.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/lib/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/lib/bootstrapDialog/js/bootstrap-dialog.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/lib/zebra_Datepicker/js/zebra_datepicker.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/lib/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/lib/bootstrapDialog/js/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/lib/zebra_Datepicker/js/zebra_datepicker.js"></script>
 </head>
 <body>
 	<!--  MENU  -->
@@ -58,6 +48,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
+			<img class="navbar-brand" src="${pageContext.request.contextPath}/resources/images/camping_ico.png" />
 			<a class="navbar-brand" href="${pageContext.request.contextPath}/">La Cerisaie</a>
 		</div>
 
@@ -98,8 +89,10 @@
 						<li><a href="${pageContext.request.contextPath}/sejour/list">Lister</a></li>
 						<li><a href="${pageContext.request.contextPath}/sejour/add">Ajouter</a></li>
 						<li class="divider"></li>
+						<li><a href="${pageContext.request.contextPath}/activity/add">Ajouter une activité</a></li>
+						<li class="divider"></li>
 						<li>
-							<form method="post" role="search" action="${pageContext.request.contextPath}/sejour/edit">
+							<form method="post" role="search" action="${pageContext.request.contextPath}/sejour/list">
 						        <div class="form-group"  style="margin-bottom:2px;">
 						        	<div class="input-group">
 							        	<span class="input-group-addon" style="padding: 2px" id="basic-addon1">
@@ -209,10 +202,9 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.date').Zebra_DatePicker({
-				format : 'Y/m/d'
+				format : 'Y-m-d'
 			}) //activer datepicker 
 			.css('background-color', "#FFF").css('cursor', 'text');
-
 		});
 	</script>
 </body>

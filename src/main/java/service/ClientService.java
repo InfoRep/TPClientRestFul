@@ -47,6 +47,7 @@ public class ClientService {
 						.post(String.class, formData);
 		
 		JSONObject obj = new JSONObject(rep);
+		System.out.println(obj.get("msg"));
 		if (!(Boolean)obj.get("valid"))
 			throw new NotValidException();
 		

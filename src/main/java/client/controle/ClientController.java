@@ -122,7 +122,10 @@ public class ClientController {
 			String path = type.contentEquals("modif") ? "client/edit/"+num : "client/add";
 			new ClientService(MultiController.baseUrlWS).postForm(path, formData);
 			
-			redAttr.addFlashAttribute("messSuccess", "Le client "+nom+" a bien été enregistré !");
+			if (type.contentEquals("modif"))
+				redAttr.addFlashAttribute("messSuccess", "Le client "+nom+" a bien été enregistré !");
+			else
+				redAttr.addFlashAttribute("messSuccess", "Le client a bien été ajouté !");
 		} catch(Exception e) {
 			redAttr.addFlashAttribute("messError", "Une erreur est survenue, merci de contacter l'administrateur du site");
 			System.out.println(e);

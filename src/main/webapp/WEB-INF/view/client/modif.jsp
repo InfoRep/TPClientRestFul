@@ -90,7 +90,7 @@
 				   <input type="submit" class="btn btn-primary" value="Modifier" />
 				</c:if>
 				
-				<a href="list" class="btn btn-default">Retour</a>
+				<a href="../list" class="btn btn-default">Retour</a>
 	  		</div>
 	  	</form>
     </jsp:body>

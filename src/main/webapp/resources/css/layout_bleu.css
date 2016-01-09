@@ -13,3 +13,14 @@ th {
 	text-decoration:none;
 }
 
+table .link {
+	color: blue;
+	text-decoration: none;
+	cursor: pointer;
+}	
+
+table .link:visited {
+	text-decoration: none;
+}
+
+
