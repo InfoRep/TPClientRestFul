@@ -29,6 +29,19 @@ import service.NotValidException;
 public class SejourController {
 	private static final Logger logger = LoggerFactory.getLogger(MultiController.class);
 	
+	public static List<Sejour> getAllSejours() throws Exception
+	{
+		//get all emplacement
+		ClientService serv = new ClientService(MultiController.baseUrlWS);
+		JSONArray jsonArray = (JSONArray)serv.get("/sejour/getall");
+		
+		List<Sejour> sejours = new ArrayList();
+		for(Object o : jsonArray)
+			sejours.add(Sejour.createFromJSON((JSONObject)o));
+		
+		return sejours;
+	}
+	
 	@RequestMapping(value = "/sejour/list")
 	public ModelAndView listSejours(HttpServletRequest request, 
 									HttpServletResponse response, 

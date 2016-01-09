@@ -113,8 +113,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="${pageContext.request.contextPath}/facturation/sejour">Séjour</a></li>
-						<li><a href="${pageContext.request.contextPath}/facturation/prestations">Prestations sportives</a></li>
+						<li><a href="${pageContext.request.contextPath}/facture/sejour">Séjour</a></li>
+						<li><a href="${pageContext.request.contextPath}/facture/prestations">Prestations sportives</a></li>
 					</ul>
 				</li>
 			</ul>

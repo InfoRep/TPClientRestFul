@@ -16,8 +16,14 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
+	<beans:bean id="viewResolver1" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <beans:property name="order" value="1"/>
+        <beans:property name="basename" value="views"/>
+    </beans:bean>
+
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
+	        <beans:property name="order" value="2"/>
 	        <beans:property name="prefix" value="/WEB-INF/view/"/>
 	        <beans:property name="suffix" value=".jsp"/>
 	</beans:bean>

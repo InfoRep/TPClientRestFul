@@ -43,25 +43,13 @@ public class ActivityController {
 		return sports;
 	}
 	
-	private List<Sejour> getAllSejours() throws Exception
-	{
-		//get all emplacement
-		ClientService serv = new ClientService(MultiController.baseUrlWS);
-		JSONArray jsonArray = (JSONArray)serv.get("/sejour/getall");
-		
-		List<Sejour> sejours = new ArrayList();
-		for(Object o : jsonArray)
-			sejours.add(Sejour.createFromJSON((JSONObject)o));
-		
-		return sejours;
-	}
 	
 	@RequestMapping(value = "/activity/add")
 	public ModelAndView addActivity(HttpServletRequest request, 
 									HttpServletResponse response) throws Exception 
 	{
 		request.setAttribute("sports", this.getAllSports());
-		request.setAttribute("sejours", this.getAllSejours());
+		request.setAttribute("sejours", SejourController.getAllSejours());
 		
 		return new ModelAndView("/activity/add");
 	}	
