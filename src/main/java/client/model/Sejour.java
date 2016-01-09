@@ -27,6 +27,12 @@ public class Sejour {
 		this.emplacement = null;
 	}
 	
+	public Sejour(int num)
+	{
+		super();
+		this.num  = num;
+	}
+	
 	public Sejour(int num, Date dateDeb, Date dateFin, int nbPersonnes, Client client, Emplacement emplacement) {
 		super();
 		this.num = num;
