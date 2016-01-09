@@ -21,6 +21,7 @@
   					window.location.href = window.location.href + "/"+$("#sejour").val();
   				});
   			});
+
    		</script>
     </jsp:attribute>
     
@@ -39,7 +40,7 @@
 	  		<div class="form-group text-right">
 			   <input type="submit" class="btn btn-primary" value="Facturer" id="btnFacture" />
 				
-				<a href="../list" class="btn btn-default">Retour</a>
+				<a href="../sejour/list" class="btn btn-default">Retour</a>
 	  		</div>
 	  	</form>
     </jsp:body>
