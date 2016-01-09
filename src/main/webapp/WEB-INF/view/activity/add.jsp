@@ -25,6 +25,13 @@
 	  		</div>
 
 	  		<div class="form-group">
+	  			<label for="nb" class="control-label col-md-2">Nombre d'unite</label>
+	  			<div class="col-md-1">
+	  				<input class="form-control" type="number" name="nbUnite" id="nb" min="0" required  />
+	  			</div>
+	  		</div>
+
+	  		<div class="form-group">
 	  			<label for="sport" class="control-label col-md-2">Sport</label>
 	  			<div class="col-md-2">
 	  				<select name="sport" id="sport" class="form-control">
@@ -49,7 +56,7 @@
 	  		<div class="form-group text-right">
 			    <input type="submit" class="btn btn-primary" value="Ajouter" />
 					<input type="reset" class="btn btn-warning" value="Reset" />
-				<a href="../../sejour/list" class="btn btn-default">Retour</a>
+				<a href="../sejour/list" class="btn btn-default">Retour</a>
 	  		</div>
 	  	</form>
     </jsp:body>

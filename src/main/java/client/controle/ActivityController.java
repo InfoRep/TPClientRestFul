@@ -62,12 +62,18 @@ public class ActivityController {
 		String sejour = request.getParameter("sejour");
 		String sport = request.getParameter("sport");
 		String date = request.getParameter("date");
-				
-		try {			
+		String nbUnite = request.getParameter("nbUnite");
+						
+		try {	
+			int nbU = Integer.valueOf(nbUnite);
+			if (nbU < 0)
+				nbU = 0;
+					
 			MultivaluedMap<String, String> formData = new MultivaluedMapImpl();
 			formData.add("sejour", sejour);
 			formData.add("sport", sport);
 			formData.add("date", date);
+			formData.add("nbUnite", String.valueOf(nbU));
 								
 			new ClientService(MultiController.baseUrlWS).postForm("activite/add/", formData);
 			
